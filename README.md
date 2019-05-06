@@ -1,4 +1,4 @@
-[Site](https://neat-utils.kteng.org)
+[Check the demo website for examples](https://neat-utils.kteng.org)
 
 # Bourbon Neat Utils
 
@@ -46,7 +46,7 @@ $grid-portrait:  (columns: 8,  gutter: 20px, media: 560px,  max-width: 100%,   c
 $grid-landscape: (columns: 12, gutter: 30px, media: 1024px, max-width: 100%,   color: tomato);
 $grid-desktop:   (columns: 12, gutter: 30px, media: 1280px, max-width: 1280px, color: plum);
 
-// now set your new breakpoints
+// don't forget to set the new breakpoints
 $grids-default: ( mobile: $grid-mobile, portrait: $grid-portrait, landscape: $grid-landscape, desktop: $grid-desktop);
 ```
 
