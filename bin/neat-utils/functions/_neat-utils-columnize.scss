@@ -1,0 +1,13 @@
+@function grid-columnize($grid, $columns, $gutter: false) {
+  $_gutter: _retrieve-neat-setting($grid, gutter);
+  $_column-ratio: _neat-column-ratio($grid, $columns);
+
+  @if $_gutter == 0 {
+    @return unquote("#{percentage($_column-ratio)}");
+  }
+  @else {
+    $offset: if($gutter, $_gutter, 0);
+    $_gutter-affordance: ($_gutter * (1 - $_column-ratio) - $offset);
+    @return unquote("#{percentage($_column-ratio)} - #{$_gutter-affordance}");
+  }
+}

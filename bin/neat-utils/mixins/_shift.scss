@@ -1,0 +1,11 @@
+@mixin shift($shifts, $grids: $grids-default) {
+
+  @each $breakpoint, $grid in $grids {
+    $_index: index($grids, ($breakpoint $grid) );
+
+    @include grid-media($grid) {
+      $_shift: _neat-utils-available-params-value($_index, $shifts, 0);
+      @include grid-shift($_shift);
+    }
+  }
+}

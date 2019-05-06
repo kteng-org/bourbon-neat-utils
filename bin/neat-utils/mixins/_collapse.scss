@@ -1,0 +1,9 @@
+@mixin collapse($grids: $grids-default) {
+
+  @each $breakpoint, $grid in $grids {
+    @include grid-media($grid) {
+      @include grid-collapse();
+      max-width: none;
+    }
+  }
+}

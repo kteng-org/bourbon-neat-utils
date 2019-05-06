@@ -1,0 +1,8 @@
+@function _neat-utils-merge-media-property($properties, $index, $params, $setting) {
+
+  @if $params != null and $index <= length($params) {
+    $properties: map-merge($properties, ($setting: nth($params, $index) ) );
+  }
+
+  @return $properties;
+}

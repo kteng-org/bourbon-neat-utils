@@ -1,0 +1,22 @@
+@mixin append($appends, $directions: null, $grids: $grids-default) {
+
+  @each $breakpoint, $grid in $grids {
+    $_index: index($grids, ($breakpoint $grid) );
+    $_side: right;
+    
+    @include grid-media($grid) {
+      $_gutter: _retrieve-neat-setting($grid, gutter);
+      $_columns: _neat-utils-available-params-value($_index, $appends, 0);
+      $_with: calc(#{_neat-column-width($grid, $_columns)});
+
+      $_margin: calc(#{$_with} + #{$_gutter});
+
+      @if $directions {
+        $_direction: _neat-utils-available-params-value($_index, $directions, ltr);
+        $_side: if($_direction == ltr, right, left);
+      }
+
+      margin-#{$_side}: $_margin;
+    }
+  }
+}

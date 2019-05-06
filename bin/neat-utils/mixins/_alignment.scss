@@ -1,0 +1,21 @@
+@mixin grid-alignment($alignment: center) {
+
+  @if $alignment == 'left'
+  or $alignment == 'center'
+  or $alignment == 'right' {
+
+    @if $alignment == left {
+      margin-left: 0;
+    }
+    @else if $alignment == right {
+      margin-right: 0;
+    }
+    @else {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  @else {
+    @warn 'the alignment "#{$alignment}" can not be used';
+  }
+}

@@ -1,0 +1,19 @@
+@mixin container($alignment: center, $grids: $grids-default, $visual: $visualize-grid, $equal: false) {
+
+  @each $breakpoint, $grid in $grids {
+    $_index: index($grids, ($breakpoint $grid) );
+
+    @include grid-container;
+    @include grid-alignment($alignment);
+
+    @include grid-media($grid) {
+
+      @include visualize($grid, map-get($grid, color), $visual);
+      max-width: _retrieve-neat-setting($grid, max-width);
+
+      @if $equal {
+        display: flex;
+      }
+    }
+  }
+}

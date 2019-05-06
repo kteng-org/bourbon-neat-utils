@@ -1,0 +1,9 @@
+@function _neat-utils-available-params-value($index, $params, $default) {
+  $_result: $default;
+
+  @if $index <= length($params) {
+    $_result: nth($params, $index);
+  }
+
+  @return $_result
+}

@@ -1,0 +1,38 @@
+{
+  "name": "bourbon-neat-utils",
+  "version": "1.1.0",
+  "description": "An extension for Bourbon Neat.",
+  "keywords": [
+    "columns",
+    "grid",
+    "layout",
+    "media-queries",
+    "neat",
+    "sass"
+  ],
+  "homepage": "http://neat-utils.kteng.org",
+  "bugs": {
+    "url": "https://github.com/kteng-org/bourbon-neat-utils/issues"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Maarten Werner",
+    "email": "maarten@kteng.org"
+  },
+  "contributors": {
+    "name": "Ktèng!",
+    "url": "https://kteng.org"
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kteng-org/bourbon-neat-utils.git"
+  },
+  "style": "bin/_neat-utils.scss",
+  "directories": {
+    "bin": "./bin"
+  },
+  "ignore": [
+    "**/.*"
+  ]
+}

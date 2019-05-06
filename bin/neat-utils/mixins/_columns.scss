@@ -1,0 +1,28 @@
+@mixin columns($columns: null, $directions: null, $gutters: null, $grids: $grids-default, $direction: null) {
+
+  $_errors: _neat-utils-validate-params($grids, (columns: $columns, directions: $directions, gutters: $gutters) );
+
+  @each $breakpoint, $grid in $grids {
+    $_index: index($grids, ($breakpoint $grid) );
+
+    @include grid-media($grid) {
+
+      $grid: _neat-utils-merge-media-property($grid, $_index, $columns, columns);
+
+      $_properties: ();
+      $_properties: _neat-utils-merge-media-property($_properties, $_index, $gutters, gutter);
+
+      // $direction overrules $directions
+      @if $direction {
+        $_properties: map-merge($_properties, (direction: $direction) );
+      }
+      @else {
+        $_properties: _neat-utils-merge-media-property($_properties, $_index, $directions, direction);
+      }
+
+      $_grid-columns: _retrieve-neat-setting($grid, columns);
+
+      @include grid-column($_grid-columns, $_properties);
+    }
+  }
+}

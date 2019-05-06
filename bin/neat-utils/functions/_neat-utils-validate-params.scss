@@ -1,0 +1,14 @@
+@function _neat-utils-validate-params($grids, $params) {
+
+  $_total-grids: length($grids);
+
+  @each $param-key, $param in $params {
+    $_total-param-values: length($param);
+
+    @if $_total-param-values > $_total-grids  {
+      @warn 'there should be #{$_total-grids} #{$param-key} values insteat of #{$_total-param-values}';
+    }
+  }
+
+  @return null;
+}

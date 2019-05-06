@@ -1,0 +1,18 @@
+@mixin columnize-property($property, $columns: null, $grids: $grids-default, $gutter: false, $function: null) {
+
+  @each $breakpoint, $grid in $grids {
+    $_index: index($grids, ($breakpoint $grid) );
+
+    @include grid-media($grid) {
+      $_grid-columns-default: _retrieve-neat-setting($grid, columns);
+      $_grid-columns: _neat-utils-available-params-value($_index, $columns, $_grid-columns-default);
+
+      @if $function {
+        #{$property}: call($function, calc(#{grid-columnize($grid, $_grid-columns, $gutter)}) );
+      }
+      @else {
+        #{$property}: calc(#{grid-columnize($grid, $_grid-columns, $gutter)});
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+// default grids
+$grid-mobile: (
+  columns: 8,
+  gutter: 16px,
+  media: $breakpoint-mobile,
+  max-width: 100%,
+  color: orange
+);
+
+$grid-portrait: (
+  columns: 8,
+  gutter: 20px,
+  media: $breakpoint-portrait,
+  max-width: 100%,
+  color: lime
+);
+
+$grid-landscape: (
+  columns: 12,
+  gutter: 30px,
+  media: $breakpoint-landscape,
+  max-width: 100%,
+  color: tomato
+);
+
+$grid-desktop: (
+  columns: 12,
+  gutter: 30px,
+  media: $breakpoint-desktop,
+  max-width: $breakpoint-desktop,
+  color: plum
+);
+
+// grid group variations
+$grids-default: (
+  mobile: $grid-mobile,
+  portrait: $grid-portrait,
+  landscape: $grid-landscape,
+  desktop: $grid-desktop,
+);

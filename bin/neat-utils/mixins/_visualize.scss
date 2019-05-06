@@ -1,0 +1,7 @@
+@mixin visualize($grid, $color: transparent, $visual: $visualize-grid) {
+  @if $visual == true {
+    html.visualize-grid & {
+      @include grid-visual( rgba($color, .2), $grid);
+    }
+  }
+}
