@@ -50,7 +50,7 @@ $grid-desktop:   (columns: 12, gutter: 30px, media: 1280px, max-width: 1280px, c
 $grids-default: ( mobile: $grid-mobile, portrait: $grid-portrait, landscape: $grid-landscape, desktop: $grid-desktop);
 ```
 
-> **Multiple grid sets **
+> **Multiple grid sets**
 
 
 ```scss
