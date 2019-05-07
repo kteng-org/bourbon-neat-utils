@@ -79,26 +79,45 @@ $container-alignment: left;
 ```
 
 
-### Setup Hotkeys
+## Setup hotkeys
 
 Put this piece of code into your javascript file.
 
+
 ```js
 import { initializeNeatHotkeys } from 'bourbon-neat-utils';
-
-// Enable this parameter if you want to keep your toggle before refreshing the page.
-// It will place a cookie 'visualize-grid' and toggles a "visualize-grid" class on your HTML tag.
-const rememberHotkeys = true;
 
 // You can get this value from the environment.
 const production = false;
 
 // You don't want to use this function in your production environment.
 if (!production) {
-  initializeNeatHotkeys(rememberHotkeys);
+
+  const options = {
+    useCookies: true,
+    visualizeGrid: true
+  }
+
+  initializeNeatHotkeys(options);
 }
 ```
+
+option | type | default | description
+--|--
+useCookies | boolean | false | Enable this parameter if you want to keep your toggle before refreshing the page. It will place a cookie 'visualize-grid' and toggles a "visualize-grid" class on your HTML tag.
+visualizeGrid | boolean | false | Visualize the grid for the first time. After that, the cookie (if you enabled the 'useCookies' option) will take over this value.
+
+### Use hotkeys
 
 keys | action
 --|--
 <kbd>ctrl + l</kbd> | toggle columns
+
+### Remove hotkeys
+
+```js
+import { removeNeatHotkeys } from 'bourbon-neat-utils';
+
+// You can remove the hotkeys. It will delete the cookie if it's set.
+removeNeatHotkeys();
+```
