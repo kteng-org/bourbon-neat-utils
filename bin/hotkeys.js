@@ -1,6 +1,8 @@
 'use strict'
 
-function toggleGrid(value = true, useCookies) {
+function toggleGrid(value, useCookies) {
+
+  value = value || true;
 
   // toggle class in the html tag
   document.documentElement.classList.toggle('visualize-grid', value);
@@ -42,17 +44,22 @@ var defaultOptions = {
 
 function initializeNeatHotkeys(options) {
 
-  var options = Object.assign({}, defaultOptions, options);
+  // merge options with default options (asign object
+  options = options || {};
+  options.useCookies = options.useCookies || defaultOptions.useCookies;
+  options.visualizeGrid = options.visualizeGrid || defaultOptions.visualizeGrid;
 
   // validate options
   if (typeof options !== 'object' || options instanceof Array) {
     throw new Error('parameter value must be an object');
   }
+
   if (typeof options.useCookies !== 'boolean' || options.useCookies instanceof Boolean) {
-    throw new Error(`option 'useCookies\' must be an boolean`);
+    throw new Error('option "useCookies" must be an boolean');
   }
+
   if (typeof options.visualizeGrid !== 'boolean' || options.visualizeGrid instanceof Boolean) {
-    throw new Error(`option 'visualizeGrid' must be an boolean`);
+    throw new Error('option "visualizeGrid" must be an boolean');
   }
 
   function getCookie(name) {
