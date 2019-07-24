@@ -2,7 +2,7 @@
 
 function toggleGrid(value, useCookies) {
 
-  value = value || true;
+  value = value === undefined ? true : value;
 
   // toggle class in the html tag
   document.documentElement.classList.toggle('visualize-grid', value);
